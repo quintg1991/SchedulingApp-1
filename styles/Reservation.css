@@ -10,9 +10,9 @@
 
 .makeReservation {
     position: absolute;
-    top: 15%;
-    right: 0;
-    width: 45%;
+    top: 12%;
+    right: 150px;
+    width: 40%;
 }
 
 .test{
