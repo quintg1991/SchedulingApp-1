@@ -9,7 +9,7 @@
 <html>
 <head>
 
-<link rel="stylesheet" type="text/css" href="/styles/Reservation.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
 
 <title>UNA Scheduling app</title>
 </head>
@@ -24,10 +24,10 @@
   <h1>Make Reservation</h1>
   <form method="POST" action="/scripts/PHP/CreateReservation.php">
     Reserving email*:
-    <input type="text" name="owneremail"><br>
+    <input type="text" name="owneremail"><br><p/>
 
     <p>Duration*:</p>
-    Start time:
+    &nbsp;&nbsp;Start time:
     <input type="text" name="startHour" style="width: 48px">
     <input type="text" name="startMinute" style="width: 48px">
     <select>
@@ -36,31 +36,31 @@
     <input id="date" type="date" name="date" placeholder="2018/01/26" required/><br>
   </select>
 
-    End time:
+  &nbsp;&nbsp;End time:&nbsp; 
     <input type="text" name="endHour" style="width: 48px">
     <input type="text" name="endMinute" style="width: 48px">
     <select>
     <option value="endAM">AM</option>
     <option value="endPM">PM</option>
     </select>
-    <input id="date" type="date" name="date" placeholder="2018/01/26" required/><br>
+    <input id="date" type="date" name="date" placeholder="2018/01/26" required/><br><p/>
 
     Recurring:
     <select>
     <option value="Once">Just Once</option>
     <option value="Weekly">Weekly</option>
     <option value="Monthly">Monthly</option>
-  </select><br>
+  </select><p/><br>
 
-    <input type="checkbox" name="allowshare" value="true">Allow room sharing<br>
+    <input type="checkbox" name="allowshare" value="true">Allow room sharing<br><p/>
 
     Expected number of seats needed:
-    <input type="text" name="numberOfSeats" style="width: 48px"><br>
+    <input type="text" name="numberOfSeats" style="width: 48px"><br><p/>
 
     <!-- add css for this boi -->
     Comments<br>
-    <textarea rows="10" cols="50" name="comment">
-    </textarea><br>
+    <textarea rows="20" cols="60" name="comment">
+    </textarea><br><p/>
 
     <button type="submit" value="Submit">Make reservation</button>
   </form>
