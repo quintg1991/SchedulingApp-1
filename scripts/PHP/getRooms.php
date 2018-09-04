@@ -22,8 +22,63 @@ if ($_SESSION['permission']!= 1){
 	if ($result->num_rows === 1){
 		$row = $result->fetch_assoc();
 		$room = $row['roomid'];
-		//added to create space from room settings search bar
-		// ADD THIS AND STYLE TO YOUR LIKING 
+
+
+    ?>
+    <form action="updateRoom.php" method="POST">
+      <div class='row'>
+        <div class='col-md-1 col-sm-1 col-xs-1'>
+          <label for='currentRoom'>
+            Current Room
+          </label>
+          <input type='text' name="currRoom" class='form-control' <?php echo "value='". $row['roomid'] ." '";?> readonly>
+        </div>
+        <div class='col-md-1 col-sm-1 col-xs-1'>
+          <label for='newRoom' style='font-size: 15.2px; font-weight: bold; padding-bottom: 1px;'>
+            New Room Number
+          </label>
+          <input type='text' name='newRoom' class='form-control' <?php echo "value='". $row['roomid'] ." ' "; ?> hidden='hidden' disabled='disabled'>
+        </div>
+      </div>
+      <br/>
+      <div class='row'>
+        <div class='col-md-2 col-sm-2 col-xs-2'>
+          <label for='type'>
+            Type
+          </label>
+          <select id='type' name='type' class='form-control'>
+            <option value="Classroom" <?php echo ($row['type'] == "Classroom") ? 'selected = "selected"' : '';?>>Classroom</option>
+            <option value="Conference Room" <?php echo ($row['type'] == "Conference Room") ? 'selected = "selected"' : '';?>>Conference Room</option>
+            <option value="Computer Lab" <?php echo ($row['type'] == "Computer Lab") ? 'selected = "selected"' : '';?>>Computer Lab</option>
+          </select>
+        </div>
+      </div>
+      <br/>
+      <div class='row'>
+        <div class='col-md-1 col-sm-1 col-xs-1'>
+           <label for='floorName' style='font-size: 15.2px;'>
+            New Floor Number
+           </label>
+          <input class='form-control' type='text' name='floor' <?php echo "value='". $row['floor'] ." ' "; ?>>
+        </div>
+        <div class='col-md-1 col-sm-1 col-xs-1'>
+          <label for='floorName'>
+            Seats
+          </label>
+          <input class='form-control' type='text' name='seats' <?php echo "value='". $row['seats'] ." ' "; ?>>
+        </div>
+      </div>
+      <br/>
+      <div class='row'>
+        <div class='col-md-2 col-sm-2 col-xs-2'>
+          <button type='submit' class='btn btn-primary' style='width: 100%;'>
+            Submit Changes
+          </button>
+        </div>
+      </div>
+    </form>
+		<!-- added to create space from room settings search bar
+		ADD THIS AND STYLE TO YOUR LIKING 
 		echo "<form action='updateRoom.php' METHOD='POST'>
       <div class='row'>
         <div class='col-md-1 col-sm-1 col-xs-1'>
@@ -45,12 +100,12 @@ if ($_SESSION['permission']!= 1){
           <label for='type'>
             Type
           </label>
-          <select id='type' class='form-control' value=' ".$row['type']." '>";
+          <select id='type' name='type' class='form-control'>";
             if ($row['type'] == "Classroom"){
-          echo "<option value='Classroom' selected='selected' >Classroom</option>
-            <option value='Conference'>Conference Room</option>
-            <option value='Computer Lab'>Computer Lab</option>
-            </select>";
+              echo "<option value='Classroom' selected='selected' >Classroom</option>
+                    <option value='Conference'>Conference Room</option>
+                    <option value='Computer Lab'>Computer Lab</option>
+                    </select>";
         } else if ($row['type'] == "Computer Lab"){
           echo "<option value='Classroom' >Classroom</option>
             <option value='Conference'>Conference Room</option>
@@ -80,7 +135,6 @@ if ($_SESSION['permission']!= 1){
         <br/>
         <div class='row'>
           <div class='col-md-2 col-sm-2 col-xs-2'>
-            <!-- <input type='submit' value='Save Changes'> -->
             <button type='submit' class='btn btn-primary' style='width: 100%;'>
               Submit Changes
             </button>
@@ -89,7 +143,9 @@ if ($_SESSION['permission']!= 1){
         </div>
       </div>
     </form>
-    <br/>";
+    <br/>"; -->
+
+<?php
 		// ADD THIS FOR STYLING 
 		
 		$sql = "SELECT * FROM reservations WHERE startdate >= CURDATE() AND roomnumber='$room' order by startdate, starttime";
