@@ -92,8 +92,8 @@ b {
     border-right: 3px solid #DDDDDD;
     border-collapse: collapse;
     position: absolute;
-    left: 8%;
-    width: 25%;
+    left: 3vh;
+    width: 70vh;
     z-index: 55;
     top: 20.5%;
     height: 100%;
