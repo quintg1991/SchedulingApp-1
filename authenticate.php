@@ -51,7 +51,7 @@ $user .= "@una.edu";
 
 ///////////////////////////////////////////
 
-$_loginSql = "SELECT `users`.`email` AS `email`, `users`.`password` AS `password` FROM `users` WHERE `users`.`email` = :username AND `users`.`password` = :password";
+$_loginSql = "SELECT `users`.`email` AS `email`, `users`.`password` AS `password`, `users`.`classification` FROM `users` WHERE `users`.`email` = :username AND `users`.`password` = :password";
 $_loginStmnt = $_pdo->prepare($_loginSql);
 
 $_params = 
@@ -64,7 +64,15 @@ $_params =
 if($_loginStmnt->execute($_params))
 {
   $_foo = $_loginStmnt->fetch(PDO::FETCH_ASSOC);
-  print_r($_foo);
+  
+  //Debuggin print_r
+  // print_r($_foo);
+
+  //Set session variable for either ADMIN or USER
+  if($_foo['classification'] != "")
+  {
+    $_SESSION['classification'] = $_foo['classification'];
+  }
 }
 else
 {
