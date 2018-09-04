@@ -16,7 +16,7 @@
     <button id="monthViewButton" class="btn btn-default navbar-btn" onclick="showCalendarView()">Month View</button>
     <button class="btn btn-default navbar-btn" onclick="dropdownRes()">My Reservations</button>
     <?php //TODO: database query on users table for permission?
-        if(isset($_SESSION['permission']) &&  $_SESSION['permission'] == 1)//using "super" as username and password for testing groups permissions
+        if($_SESSION['classification'] == "ADMIN")
         {
           echo  "<button class='btn btn-default navbar-btn' id=\"settingsButton\" onclick=\"window.location.href += 'scripts/PHP/userSettings.php'\">Settings</button>";
         } 
