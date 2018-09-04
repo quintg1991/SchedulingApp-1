@@ -10,6 +10,11 @@
   {
     $logged_in_user = $_SESSION['username'];
   };
+
+  // if(isset($_SESSION['classification']))
+  // {
+  //   echo($_SESSION['classification']);
+  // }
   
 ?>
     <html>
