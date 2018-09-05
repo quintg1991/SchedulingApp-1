@@ -161,7 +161,7 @@ function setEmail(str) {
                 echo '<td>';
                 echo '<a style="margin-right: 5px;" class="btn btn-default editBtn" href="#"><i class="fas fa-pencil-alt"></i></a>';
                 echo '<a style="margin-right: 5px;" class="btn btn-default" href="deleteUser.php?email='.$user['0'].'"><i class="fas fa-trash-alt"></i></a>';
-                echo '</td>';
+                echo '</td></tr>';
               }
             }
           ?>
